@@ -36,4 +36,4 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-Sitemap: https://www.recycledchristmas.org/sitemap.xml
+Sitemap: https://recycledchristmas.org/sitemap.xml

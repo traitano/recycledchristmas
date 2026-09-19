@@ -29,7 +29,7 @@ Static single page. No build step, no framework, no JavaScript required to read 
 3. Framework preset: **None**. Build command: blank. Output directory: `/`.
 4. Deploy. You get `*.pages.dev` immediately.
 5. Buy the domain in Cloudflare Registrar (same dashboard), then Pages → Custom domains → add both `recycledchristmas.org` and `www.recycledchristmas.org`. DNS and certs are automatic.
-6. Pick one as canonical and redirect the other. The files here assume `www` is canonical — if you choose the apex instead, change every `https://www.recycledchristmas.org/` in `index.html`, `sitemap.xml` and `llms.txt`.
+6. Pick one as canonical and redirect the other. The files here assume the apex domain is canonical, so all URLs point to `https://recycledchristmas.org/` in `index.html`, `sitemap.xml`, `robots.txt` and `llms.txt`.
 
 Any push to `main` redeploys in about 20 seconds. GitHub Pages and Netlify work identically if you prefer; Cloudflare's registrar is the cheapest place to hold the domain because they sell at wholesale cost with no renewal markup.
 
@@ -102,3 +102,7 @@ These are placeholders based on the sale's historical pattern. Replace before la
 - **Geo coordinates** for the venue: approximate. Get exact values by right-clicking the church in Google Maps.
 - **Donation drop-off window**: currently a placeholder sentence.
 - **Contact**: the volunteer button points at Facebook. A dedicated forwarding address is better.
+
+## Funding update
+
+- Proceeds support the United Women in Faith pledge to mission and local partner organizations, including Bethany House of Hospitality, Children’s Advocacy Center of North and Northwest Cook County, C.I.T.Y. of Support, Faith Feeds Food Pantry, FamilyForward, FUMCAH Youth Mission, GirlForward, Good Neighbors Network, Hot Mess Express, Journeys The Road Home, Keeping Families Covered, Kids Above All, The Kid’s Pantry, Northwest Center Against Sexual Assault, Partners for Our Communities, Shelter Youth & Family Services, and WINGS — Women In Need Growing Stronger.
