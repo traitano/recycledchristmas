@@ -37,6 +37,7 @@
   --paper: #FAF6EB;          /* Nostalgic Antique Paper/Cream */
   --paper-2: #EAE3CB;        /* Slightly darker warm vintage cardstock */
   --paper-3: #FFFDF9;        /* Bright cream gloss highlight */
+  --paper-4: #FFF0B8;        /* Glowing warm gold cream text */
   --ink: #18221D;            /* Deep graphite ink */
   --ink-soft: #4F5E56;       /* Faded newspaper print grey */
   
@@ -351,6 +352,40 @@ ul.plain li::before {
   background-color: var(--brass); 
 }
 
+footer {
+  background-color: var(--fir-dark, #10201A);
+  color: var(--paper, #FAF6EB); /* Forces normal body text to antique cream */
+  padding: 4rem 0 3.5rem 0;
+  margin-top: 4rem;
+  border-top: 6px double var(--ornament); /* Vintage red trim line */
+}
+
+/* 🟢 High-Contrast Heading Fix: Forces the H2 to pop against the dark green */
+footer h2 {
+  color: var(--paper, #FAF6EB) !important;
+  text-shadow: 2px 2px 0px var(--ink, #18221D); /* Dark underlying offset text shadow */
+  margin-bottom: 1.5rem;
+}
+
+/* Ensures footer subtext remains readable and slightly faded like old paper print */
+footer p, footer span {
+  color: var(--paper-2, #EAE3CB);
+}
+
+/* Base link color inside the footer */
+footer a {
+  color: var(--brass-soft, #70D1F0);
+  text-decoration: underline;
+  text-decoration-color: var(--brass-soft);
+  font-weight: 700;
+}
+
+/* 🚀 Legibility Link Hover Fix: Changes text to brilliant space-age sky blue/yellow hue */
+/* #FFF0B8 */
+footer a:hover {
+  color: var(--paper-4, #FFF0B8) !important; /* Glowing warm gold cream text */
+  text-decoration-color: var(--paper-4, #FFF0B8);
+}
 
 </style>
 
@@ -430,7 +465,7 @@ ul.plain li::before {
 
 <section>
   <div class="wrap">
-    <h2>Donating your Christmas things</h2>
+    <h2 class="starburst-header">Donating your Christmas things</h2>
     <div class="donate-columns">
       <p class="donate-intro">Everything in the sale was donated by neighbors. If your decorations are still good but no longer get used, they can have another Christmas somewhere else.</p>
       <div>
@@ -461,7 +496,7 @@ ul.plain li::before {
 
 <section class="gallery">
   <div class="wrap">
-    <h2>Photo gallery</h2>
+    <h2 class="starburst-header">Photo gallery</h2>
     <div class="photo-grid" aria-label="Recycled Christmas photo gallery">
       <figure class="photo-card">
         <img src="img/trees.jpg" alt="Artificial Christmas trees displayed at the sale">
@@ -490,7 +525,7 @@ ul.plain li::before {
       <path d="M70 4v7M180 4v5M240 4v9" stroke="currentColor" stroke-width="1"/>
       <circle cx="70" cy="15" r="4.2" fill="currentColor"/><circle cx="180" cy="13" r="4.2" fill="currentColor"/><circle cx="240" cy="17" r="5" fill="currentColor"/>
     </svg>
-    <h2>Where the money goes</h2>
+    <h2 class="starburst-header">Where the money goes</h2>
     <div class="col">
       <p>Recycled Christmas is run entirely by volunteers. Every dollar taken in at the tables supports the <strong>United Women in Faith pledge to mission</strong> and the local organizations our church community supports.</p>
       <p>Recent recipients include</p>
@@ -520,7 +555,7 @@ ul.plain li::before {
 
 <section>
   <div class="wrap">
-    <h2>Lending a hand</h2>
+    <h2 class="starburst-header">Lending a hand</h2>
     <div class="col">
       <p>The sale takes weeks of sorting, pricing and hauling before a single shopper walks in, and a crew to run the rooms and pack up afterward. Shifts are available on weekdays, evenings and weekends, for adults and for helpers age 12 and up.</p>
       <p>Tables to borrow and baked goods for the bake sale are always welcome too.</p>
@@ -533,17 +568,35 @@ ul.plain li::before {
 
 <footer>
   <div class="wrap">
-    <h2>Recycled Christmas</h2>
-    <address>
-      First United Methodist Church of Arlington Heights<br>
-      1903 E Euclid Ave, Arlington Heights, IL 60004<br>
-      <a href="https://www.fumcah.com">fumcah.com</a> &nbsp;·&nbsp;
-      <a href="https://www.facebook.com/recycledchristmasandrummagesales/">Facebook</a> &nbsp;·&nbsp;
-      <a href="https://uwfaith.org">United Women in Faith</a>
-    </address>
-    <p class="fine">Serving Arlington Heights, Mount Prospect, Palatine, Buffalo Grove, Prospect Heights, Rolling Meadows, Wheeling and the northwest suburbs of Chicago. Sale date for 2026: Saturday, November 14.</p>
+    <!-- Combined Left-Aligned Starburst Heading (Overrides automatically match footer colors) -->
+    <h2 class="starburst-header">Recycled Christmas</h2>
+    
+    <div class="grid2">
+      <!-- Left Column: Venue & Contact Info -->
+      <div class="col">
+        <p><strong>First United Methodist Church of Arlington Heights</strong><br>
+        1903 E Euclid Ave, Arlington Heights, IL 60004</p>
+        <p>
+          <a href="https://fumcah.com" target="_blank">fumcah.com</a> • 
+          <a href="#" target="_blank">Facebook</a> • 
+          <a href="#" target="_blank">United Women in Faith</a>
+        </p>
+      </div>
+      
+      <!-- Right Column: Serving Areas & Final Details -->
+      <div class="col">
+        <p style="font-size: 0.95rem; line-height: 1.5;">
+          <strong>Serving Chicagoland communities including:</strong><br>
+          Arlington Heights, Mount Prospect, Palatine, Buffalo Grove, Prospect Heights, Rolling Meadows, Wheeling, and the northwest suburbs of Chicago.
+        </p>
+        <p style="font-size: 0.9rem; margin-top: 1.5rem; opacity: 0.8;">
+          Sale date for 2026: Saturday, November 14.
+        </p>
+      </div>
+    </div>
   </div>
 </footer>
+
 
 <script type="application/ld+json">
 {
