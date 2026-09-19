@@ -12,7 +12,7 @@
 
 <title>Recycled Christmas 2026 — Arlington Heights, IL | Saturday, Nov. 14</title>
 <meta name="description" content="Annual resale of gently used Christmas decorations in Arlington Heights, IL. Saturday, Nov. 14, 2026, 9:00 am–4:00 pm at 1903 E Euclid Ave. Free admission and parking. Cash only.">
-<link rel="canonical" href="https://www.recycledchristmas.org/">
+<link rel="canonical" href="https://recycledchristmas.org/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="geo.region" content="US-IL">
 <meta name="geo.placename" content="Arlington Heights, Illinois">
@@ -21,7 +21,7 @@
 <meta property="og:site_name" content="Recycled Christmas">
 <meta property="og:title" content="Recycled Christmas 2026 — Arlington Heights Christmas Resale">
 <meta property="og:description" content="One-day Christmas resale: Saturday, Nov. 14, 2026, 9:00 am–4:00 pm. Gently used trees, ornaments, nativity sets, village pieces, wreaths, ugly sweaters and more. Free admission and parking. Cash only.">
-<meta property="og:url" content="https://www.recycledchristmas.org/">
+<meta property="og:url" content="https://recycledchristmas.org/">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -138,6 +138,25 @@ section{padding:2.75rem 0}
 .grid2{display:grid;gap:1.75rem 3rem}
 @media (min-width:50em){.grid2{grid-template-columns:1fr 1fr}}
 
+.gallery{padding-top:0}
+.photo-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-top:1rem}
+.photo-card{
+  position:relative;display:block;min-height:220px;border-radius:12px;overflow:hidden;
+  background:#d6c9b6;border:1px solid rgba(21,32,26,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);
+}
+.photo-card img{
+  display:block;width:100%;height:100%;object-fit:cover;
+}
+.photo-card span{
+  position:absolute;left:1rem;bottom:1rem;z-index:1;color:#F6F1E4;font-weight:700;letter-spacing:.02em;
+  text-shadow:0 1px 2px rgba(0,0,0,.28);
+  background:rgba(21,32,26,.22);padding:.35rem .55rem;border-radius:999px;
+}
+
+.donate-intro{grid-column:1 / -1;max-width:40em;margin:0 0 1rem}
+.donate-columns{display:grid;gap:1.75rem 3rem}
+@media (min-width:50em){.donate-columns{grid-template-columns:1fr 1fr}}
+
 dl.qa{margin:0}
 dl.qa dt{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.14rem;margin:1.6rem 0 .3rem;color:var(--ink)}
 dl.qa dt:first-child{margin-top:0}
@@ -153,12 +172,12 @@ ul.plain li{margin-bottom:.3rem}
 .callout strong{color:var(--ink);font-weight:500}
 
 .btn{
-  display:inline-block;background:var(--ornament);color:#F6F1E4;
+  display:inline-block;background:var(--ornament);color:#F8F1E2;
   padding:.7rem 1.4rem;border-radius:2px;text-decoration:none;font-weight:700;
-  border:none;font-size:1rem;
+  border:none;font-size:1rem;transition:background-color .2s ease,color .2s ease,transform .2s ease;
 }
-.btn:hover{background:var(--ink);color:var(--paper)}
-:root:not([data-theme="light"]) .btn{color:#131A15}
+.btn:hover{background:#7F2925;color:#FFF9F0}
+:root:not([data-theme="light"]) .btn{color:#F8F1E2}
 .btn:focus-visible{outline:2.5px solid var(--brass);outline-offset:3px}
 
 address{font-style:normal}
@@ -240,7 +259,7 @@ footer h2{font-size:1.4rem;color:#F6F1E4;margin-bottom:.4rem}
         <dd>Almost everything is <strong>gently used and donated</strong>, priced well below retail. A few tables carry handmade crafts made by volunteers.</dd>
 
         <dt>How often does the sale happen?</dt>
-        <dd>Once a year, on a Saturday in November. United Women in Faith also runs a rummage sale each spring at the same church.</dd>
+        <dd>Once a year, on a Saturday in November.</dd>
       </dl>
     </div>
   </div>
@@ -249,9 +268,9 @@ footer h2{font-size:1.4rem;color:#F6F1E4;margin-bottom:.4rem}
 <section>
   <div class="wrap">
     <h2>Donating your Christmas things</h2>
-    <div class="grid2">
+    <div class="donate-columns">
+      <p class="donate-intro">Everything in the sale was donated by neighbors. If your decorations are still good but no longer get used, they can have another Christmas somewhere else.</p>
       <div>
-        <p class="col">Everything in the sale was donated by neighbors. If your decorations are still good but no longer get used, they can have another Christmas somewhere else.</p>
         <h3>Gladly accepted</h3>
         <ul class="plain yes">
           <li>Artificial trees, wreaths, garland</li>
@@ -277,6 +296,30 @@ footer h2{font-size:1.4rem;color:#F6F1E4;margin-bottom:.4rem}
   </div>
 </section>
 
+<section class="gallery">
+  <div class="wrap">
+    <h2>Photo gallery</h2>
+    <div class="photo-grid" aria-label="Recycled Christmas photo gallery">
+      <figure class="photo-card">
+        <img src="img/trees.jpg" alt="Artificial Christmas trees displayed at the sale">
+        <figcaption><span>Trees</span></figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="img/ornaments.jpg" alt="Glass ornaments and holiday decor on display at Recycled Christmas">
+        <figcaption><span>Ornaments</span></figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="img/wreaths.jpg" alt="Holiday wreaths and festive decorations arranged for the sale">
+        <figcaption><span>Wreaths</span></figcaption>
+      </figure>
+      <figure class="photo-card">
+        <img src="img/santas.jpg" alt="Santa figurines and seasonal decorations on sale">
+        <figcaption><span>Santas</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <section class="band">
   <div class="wrap">
     <svg class="sec-mark" viewBox="0 0 300 22" fill="none" aria-hidden="true" preserveAspectRatio="xMinYMid meet">
@@ -286,8 +329,9 @@ footer h2{font-size:1.4rem;color:#F6F1E4;margin-bottom:.4rem}
     </svg>
     <h2>Where the money goes</h2>
     <div class="col">
-      <p>Recycled Christmas is run entirely by volunteers. Every dollar taken in at the tables goes to <strong>United Women in Faith</strong>, which funds programs for women, children and youth locally and around the world.</p>
-      <p>It is one of two fundraisers the group runs each year, alongside the spring rummage sale.</p>
+      <p>Recycled Christmas is run entirely by volunteers. Every dollar taken in at the tables supports the <strong>United Women in Faith pledge to mission</strong> and the local organizations our church community supports.</p>
+      <p>Recent recipients include Bethany House of Hospitality, Children’s Advocacy Center of North and Northwest Cook County, C.I.T.Y. of Support, Faith Feeds Food Pantry, FamilyForward, FUMCAH Youth Mission, GirlForward, Good Neighbors Network, Hot Mess Express, Journeys The Road Home, Keeping Families Covered, Kids Above All, The Kid’s Pantry, Northwest Center Against Sexual Assault, Partners for Our Communities, Shelter Youth &amp; Family Services, and WINGS — Women In Need Growing Stronger.</p>
+      <p>We are honored to support these amazing organizations each year, and we could not do it without you.</p>
     </div>
   </div>
 </section>
@@ -325,19 +369,19 @@ footer h2{font-size:1.4rem;color:#F6F1E4;margin-bottom:.4rem}
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://www.recycledchristmas.org/#website",
-      "url": "https://www.recycledchristmas.org/",
+      "@id": "https://recycledchristmas.org/#website",
+      "url": "https://recycledchristmas.org/",
       "name": "Recycled Christmas",
       "description": "Annual resale of gently used Christmas decorations in Arlington Heights, Illinois, benefiting United Women in Faith.",
       "inLanguage": "en-US",
-      "publisher": { "@id": "https://www.recycledchristmas.org/#organizer" }
+      "publisher": { "@id": "https://recycledchristmas.org/#organizer" }
     },
     {
       "@type": "Organization",
-      "@id": "https://www.recycledchristmas.org/#organizer",
+      "@id": "https://recycledchristmas.org/#organizer",
       "name": "United Women in Faith at First United Methodist Church of Arlington Heights",
       "alternateName": "UWFaith FUMCAH",
-      "url": "https://www.recycledchristmas.org/",
+      "url": "https://recycledchristmas.org/",
       "sameAs": [
         "https://www.facebook.com/recycledchristmasandrummagesales/",
         "https://www.fumcah.com/uwfaith",
@@ -359,7 +403,7 @@ footer h2{font-size:1.4rem;color:#F6F1E4;margin-bottom:.4rem}
     },
     {
       "@type": "Place",
-      "@id": "https://www.recycledchristmas.org/#venue",
+      "@id": "https://recycledchristmas.org/#venue",
       "name": "First United Methodist Church of Arlington Heights",
       "address": {
         "@type": "PostalAddress",
@@ -375,30 +419,30 @@ footer h2{font-size:1.4rem;color:#F6F1E4;margin-bottom:.4rem}
     },
     {
       "@type": "SaleEvent",
-      "@id": "https://www.recycledchristmas.org/#event2026",
+      "@id": "https://recycledchristmas.org/#event2026",
       "name": "Recycled Christmas 2026",
-      "description": "A one-day resale of gently used Christmas decorations including artificial trees, wreaths, ornaments, nativity sets, Christmas village pieces, lights, holiday dishes and linens, ugly sweaters, gift wrap and outdoor decor, plus a bake sale. Free admission and parking. Cash only. All proceeds support United Women in Faith missions for women, children and youth.",
+      "description": "A one-day resale of gently used Christmas decorations including artificial trees, wreaths, ornaments, nativity sets, Christmas village pieces, lights, holiday dishes and linens, ugly sweaters, gift wrap and outdoor decor, plus a bake sale. Free admission and parking. Cash only. All proceeds support the United Women in Faith pledge to mission and community partners.",
       "startDate": "2026-11-14T09:00:00-06:00",
       "endDate": "2026-11-14T16:00:00-06:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "isAccessibleForFree": true,
       "inLanguage": "en-US",
-      "url": "https://www.recycledchristmas.org/",
-      "location": { "@id": "https://www.recycledchristmas.org/#venue" },
-      "organizer": { "@id": "https://www.recycledchristmas.org/#organizer" },
+      "url": "https://recycledchristmas.org/",
+      "location": { "@id": "https://recycledchristmas.org/#venue" },
+      "organizer": { "@id": "https://recycledchristmas.org/#organizer" },
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
         "validFrom": "2026-09-01T00:00:00-05:00",
-        "url": "https://www.recycledchristmas.org/"
+        "url": "https://recycledchristmas.org/"
       }
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.recycledchristmas.org/#faq",
+      "@id": "https://recycledchristmas.org/#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -433,7 +477,7 @@ footer h2{font-size:1.4rem;color:#F6F1E4;margin-bottom:.4rem}
         {
           "@type": "Question",
           "name": "Who benefits from the proceeds?",
-          "acceptedAnswer": { "@type": "Answer", "text": "All proceeds go to United Women in Faith, funding programs that support women, children and youth locally and worldwide. The sale is run entirely by volunteers." }
+          "acceptedAnswer": { "@type": "Answer", "text": "All proceeds support the United Women in Faith pledge to mission and local community partners, including Bethany House of Hospitality, Children’s Advocacy Center of North and Northwest Cook County, C.I.T.Y. of Support, Faith Feeds Food Pantry, FamilyForward, FUMCAH Youth Mission, GirlForward, Good Neighbors Network, Hot Mess Express, Journeys The Road Home, Keeping Families Covered, Kids Above All, The Kid’s Pantry, Northwest Center Against Sexual Assault, Partners for Our Communities, Shelter Youth & Family Services and WINGS — Women In Need Growing Stronger. The sale is run entirely by volunteers." }
         },
         {
           "@type": "Question",
