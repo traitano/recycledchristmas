@@ -33,164 +33,327 @@
 
 <style>
 :root{
-  --paper:#F6F1E4;
-  --paper-2:#EDE5D2;
-  --ink:#15201A;
-  --fir:#1C3D2C;
-  --ornament:#A8322B;
-  --brass:#9A7226;
-  --muted:#5A6159;
-  --rule:rgba(21,32,26,.16);
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
-  color-scheme:light dark;
+  /* --- Authentic Mid-Century Shiny Brite Palette --- */
+  --paper: #FAF6EB;          /* Nostalgic Antique Paper/Cream */
+  --paper-2: #EAE3CB;        /* Slightly darker warm vintage cardstock */
+  --paper-3: #FFFDF9;        /* Bright cream gloss highlight */
+  --ink: #18221D;            /* Deep graphite ink */
+  --ink-soft: #4F5E56;       /* Faded newspaper print grey */
+  
+  /* Bold Retro Pop Colors */
+  --ornament: #E1284B;       /* Iconic 1950s Cerise Pink-Red */
+  --ornament-dark: #B51330;  /* Deep holiday glass shadow */
+  --fir: #0A966E;            /* Bright Atomic Teal/Mint Green */
+  --fir-dark: #06644A;       /* Structured pine green */
+  --brass: #00A0D2;          /* Space-age Atomic Sky Blue */
+  --brass-soft: #70D1F0;     /* Pastel mercury glass highlight */
+  
+  /* Layout Rules */
+  --rule: var(--fir);
+  --footer-bg: var(--ink);
+  --footer-text: var(--paper);
+  --footer-muted: var(--paper-2);
+  --masthead-bg: var(--ornament);
+  --masthead-bg-dark: var(--ornament-dark);
+  --masthead-text: var(--paper);
+  --masthead-muted: var(--paper-2);
+  --masthead-muted-2: var(--paper);
+  --masthead-rule: rgba(250, 246, 235, 0.4);
+  --tag-border: var(--paper);
+  --tag-text: var(--paper);
+  --tag-accent: var(--paper);
+  --button-text: var(--paper);
+  --button-hover-bg: var(--fir);
+  --button-hover-text: var(--paper);
+  
+  /* Hard Edge Block Shadows (Replaces Smooth Modern Gradients) */
+  --card-border: var(--ink);
+  --retro-shadow-red: 6px 6px 0px 0px var(--ornament);
+  --retro-shadow-teal: 6px 6px 0px 0px var(--fir);
+  --retro-shadow-ink: 6px 6px 0px 0px var(--ink);
+  
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  color-scheme: light only; /* Keeping vintage textures consistent */
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#131A15;
-    --paper-2:#1B241D;
-    --ink:#EDE5D2;
-    --fir:#8FBFA1;
-    --ornament:#E0766C;
-    --brass:#D2A653;
-    --muted:#A3AC9F;
-    --rule:rgba(237,229,210,.18);
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 1rem); -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Karla", "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(1rem, .96rem + .22vw, 1.115rem);
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration-color: var(--fir); text-underline-offset: .18em; text-decoration-thickness: .12em; font-weight: 500; }
+a:hover { color: var(--ornament); text-decoration-color: var(--ornament); }
+a:focus-visible { outline: 3px solid var(--ornament); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { width: min(100% - 2.5rem, 63rem); margin-inline: auto; }
+.col { max-width: 36em; }
+
+/* Font Stacking Setup: If Google Fonts "Fontdiner Swanky" or "Lobster Two" loads locally */
+h1, h2, h3 { 
+  font-family: "Lobster Two", "Fraunces", Georgia, serif; 
+  line-height: 1.1; 
+  margin: 0; 
+  letter-spacing: 0.02em; 
+}
+h2 { font-size: clamp(1.85rem, 1.4rem + 1.8vw, 2.75rem); font-weight: 700; margin-bottom: .6em; color: var(--fir-dark); }
+h3 { font-size: clamp(1.2rem, 1.1rem + .4vw, 1.45rem); font-weight: 700; margin: 2rem 0 .4rem; color: var(--ink); }
+p { margin: 0 0 1rem; }
+
+/* ---------- Retro Masthead / Box Design ---------- */
+.masthead { 
+  background: var(--masthead-bg); 
+  color: var(--paper); 
+  padding: 3.5rem 0 4rem; 
+  position: relative; 
+  overflow: hidden;
+  border-bottom: 8px double var(--paper); /* Vintage double-stamped cardboard finish */
+}
+.masthead .kicker { 
+  font-size: 1rem; 
+  text-transform: uppercase; 
+  letter-spacing: .12em; 
+  color: var(--paper); 
+  margin: 0 0 1.1rem; 
+  font-weight: 700;
+}
+.masthead .kicker a { color: var(--paper); text-decoration: underline; }
+
+h1 {
+  font-size: clamp(3rem, 1.5rem + 7vw, 6.5rem);
+  font-weight: 900;
+  color: var(--masthead-text);
+  margin: 0 0 .15em;
+  text-shadow: 3px 3px 0px var(--fir-dark); /* Retro layered offset shadow text */
+}
+.masthead .lede { font-size: clamp(1.15rem, 1.05rem + .5vw, 1.45rem); color: var(--paper); max-width: 32em; margin: 0 0 2rem; font-weight: 500; }
+
+/* Box Layout for Event Timing Details */
+.when {
+  display: grid; gap: .25rem 2.25rem;
+  border: 3px solid var(--paper);
+  background: rgba(0,0,0,0.12);
+  padding: 1.5rem; margin-bottom: 1.5rem;
+  max-width: 46rem;
+  box-shadow: var(--retro-shadow-ink);
+}
+@media (min-width:44em){ .when { grid-template-columns: auto auto; justify-content: start; } }
+.when b { font-family: "Karla", sans-serif; font-weight: 800; font-size: 1.35rem; color: var(--masthead-text); display: block; text-transform: uppercase; letter-spacing: 0.05em; }
+.when span { color: var(--paper); font-size: 1.1rem; font-weight: 500; }
+.where { color: var(--paper); margin: 0; font-size: 1.1rem; }
+.where strong { color: var(--paper); font-weight: 700; text-decoration: underline var(--brass-soft); }
+
+.flags { margin: 1.8rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .6rem .65rem; }
+.flags li { border: 2px solid var(--tag-border); border-radius: 4px; padding: .3rem .9rem; font-size: .95rem; font-weight: 700; text-transform: uppercase; color: var(--tag-text); background: rgba(255,255,255,0.1); }
+.flags li.cash { background: var(--paper); color: var(--ornament); border-color: var(--paper); box-shadow: 3px 3px 0px var(--fir-dark); }
+
+/* ---------- Bold Printed Inventory List ---------- */
+.inventory { padding: 4rem 0 2rem; }
+.goods {
+  font-family: "Lobster Two", "Fraunces", Georgia, serif;
+  font-size: clamp(1.45rem, 1.15rem + 1.5vw, 2.5rem);
+  font-weight: 700; line-height: 1.35; margin: 0;
+  color: var(--ink);
+  max-width: 22em;
+}
+.goods i { font-style: italic; color: var(--ornament); text-shadow: 1px 1px 0px var(--paper-2); }
+.goods .dot { color: var(--fir); font-style: normal; font-weight: 900; }
+
+/* ---------- Mid-Mod Containers / Sections ---------- */
+section { padding: 3.5rem 0; }
+.band { background: var(--paper-2); border-top: 4px solid var(--ink); border-bottom: 4px solid var(--ink); }
+
+svg.sec-mark {
+  display: block;
+  /* Comfortably widens the divider line horizontally across the screen */
+  width: min(90%, 750px); 
+  height: auto;
+  margin: 2.5rem auto 3rem auto;
+  
+  /* Restores the perfect geometric canvas ratio so hangers and bulbs never separate */
+  aspect-ratio: 300 / 22; 
+  
+  color: var(--fir);
+  
+  /* Applying a crisp offset printed drop shadow specifically to the stroke vectors */
+  filter: drop-shadow(4px 4px 0px var(--ornament));
+  overflow: visible;
+}
+
+/* Ensure no rogue internal element shifts are hanging around from our previous attempt */
+svg.sec-mark path, 
+svg.sec-mark circle { 
+  transform: none !important; 
+}
+
+/* Forces the core horizontal bar vector path to stretch wider safely */
+svg.sec-mark path[d^="M0"] {
+  transform: scaleX(2);
+  transform-origin: center;
+  vector-effect: non-scaling-stroke; /* Keeps the line thickness identical */
+}
+
+/* Adjusts the positioning of your 3 hanging ornaments so they stay distributed */
+svg.sec-mark circle:nth-of-type(1), svg.sec-mark path[d*="M70"] { transform: translateX(-40px); }
+svg.sec-mark circle:nth-of-type(2), svg.sec-mark path[d*="M180"] { transform: translateX(0px); }
+svg.sec-mark circle:nth-of-type(3), svg.sec-mark path[d*="M240"] { transform: translateX(40px); }
+
+/* Responsive Reset for Mobile Viewports */
+@media (max-width: 480px) {
+  svg.sec-mark {
+    width: 85%;
+  }
+  /* Resets path overrides on mobile so it snaps back to your perfect default layout */
+  svg.sec-mark path, svg.sec-mark circle {
+    transform: none !important;
   }
 }
-:root[data-theme="dark"]{
-  --paper:#131A15; --paper-2:#1B241D; --ink:#EDE5D2; --fir:#8FBFA1;
-  --ornament:#E0766C; --brass:#D2A653; --muted:#A3AC9F; --rule:rgba(237,229,210,.18);
+
+.grid2 { display: grid; gap: 2rem 3.5rem; }
+@media (min-width:50em){ .grid2 { grid-template-columns: 1fr 1fr; } }
+
+/* Graphic Ornament Box Cards for Content Panels */
+dl.qa { margin: 0; }
+dl.qa dt { 
+  font-family: "Karla", sans-serif; 
+  font-weight: 800; 
+  font-size: 1.25rem; 
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 1.8rem 0 .5rem; 
+  color: var(--ornament-dark); 
 }
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 1rem);-webkit-text-size-adjust:100%}
-body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:"Karla","Helvetica Neue",Arial,sans-serif;
-  font-size:clamp(1rem,.96rem + .22vw,1.115rem);
-  line-height:1.62;
-  -webkit-font-smoothing:antialiased;
+dl.qa dt:first-child { margin-top: 0; }
+dl.qa dd { 
+  margin: 0 0 1.5rem 0; 
+  color: var(--ink); 
+  max-width: 38em; 
+  background: var(--paper-3);
+  padding: 1.25rem;
+  border: 2px solid var(--ink);
+  box-shadow: var(--retro-shadow-teal); /* Geometric pop shadows */
 }
-img{max-width:100%;height:auto;display:block}
-a{color:inherit;text-decoration-color:var(--ornament);text-underline-offset:.18em;text-decoration-thickness:.08em}
-a:hover{color:var(--ornament)}
-a:focus-visible{outline:2.5px solid var(--ornament);outline-offset:3px;border-radius:2px}
+dl.qa dd strong { color: var(--ornament); font-weight: 700; }
 
-.wrap{width:min(100% - 2.5rem, 63rem);margin-inline:auto}
-.col{max-width:36em}
+/* ---------- Shiny Glass Ornament List Bullets ---------- */
+ul.plain { margin: .5rem 0 1.5rem; padding-left: 1.5rem; list-style: none; }
+ul.plain li { margin-bottom: .6rem; position: relative; padding-left: 1.5rem; color: var(--ink); font-weight: 500; }
 
-h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-variation-settings:"SOFT" 18,"WONK" 1;line-height:1.05;margin:0;letter-spacing:-.012em}
-h2{font-size:clamp(1.65rem,1.3rem + 1.6vw,2.5rem);font-weight:600;margin-bottom:.5em}
-h3{font-size:clamp(1.12rem,1.04rem + .38vw,1.32rem);font-weight:600;margin:2rem 0 .35rem}
-p{margin:0 0 1rem}
-
-/* ---------- masthead ---------- */
-.masthead{background:var(--fir);color:var(--paper);padding:2.5rem 0 3rem;position:relative;overflow:hidden}
-:root:not([data-theme="light"]) .masthead{background:#10201A}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .masthead{background:#0D1712;color:#EDE5D2}}
-.masthead .kicker{font-size:.9rem;letter-spacing:.06em;color:#D8CDB4;margin:0 0 1.1rem}
-.masthead .kicker a{color:#D8CDB4}
-h1{
-  font-size:clamp(2.7rem,1.4rem + 6.4vw,6rem);
-  font-weight:900;
-  font-variation-settings:"SOFT" 40,"WONK" 1,"opsz" 144;
-  color:#F6F1E4;
-  margin:0 0 .12em;
+/* Shiny 3D Mercury-Glass Orb Markers */
+ul.plain li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: clamp(0.3rem, 0.4rem, 0.5rem);
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
 }
-.masthead .lede{font-size:clamp(1.05rem,1rem + .5vw,1.35rem);color:#E4DAC2;max-width:30em;margin:0 0 2rem}
-
-.when{
-  display:grid;gap:.15rem 2.25rem;
-  border-top:1.5px solid rgba(246,241,228,.35);
-  border-bottom:1.5px solid rgba(246,241,228,.35);
-  padding:1.15rem 0;margin-bottom:1.5rem;
-  max-width:46rem;
+.yes li::before {
+  background: radial-gradient(circle at 4px 4px, #A2FCE0, var(--fir) 60%, var(--fir-dark));
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
-@media (min-width:44em){.when{grid-template-columns:auto auto;justify-content:start}}
-.when b{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.28rem;color:#F6F1E4;display:block}
-.when span{color:#D8CDB4;font-size:1.02rem}
-.where{color:#E4DAC2;margin:0}
-.where strong{color:#F6F1E4;font-weight:500}
-.flags{margin:1.6rem 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.5rem .55rem}
-.flags li{border:1.5px solid rgba(246,241,228,.4);border-radius:999px;padding:.24rem .8rem;font-size:.9rem;color:#E4DAC2}
-.flags li.cash{border-color:#E3B25A;color:#F0D9A8}
-
-/* ---------- inventory ---------- */
-.inventory{padding:3.25rem 0 1rem}
-.goods{
-  font-family:"Fraunces",Georgia,serif;
-  font-variation-settings:"SOFT" 30,"WONK" 1;
-  font-size:clamp(1.35rem,1.05rem + 1.45vw,2.35rem);
-  font-weight:400;line-height:1.28;margin:0;
-  color:var(--ink);
-  max-width:20em;
-}
-.goods i{font-style:normal;color:var(--ornament)}
-.goods .dot{color:var(--brass);font-style:normal}
-
-/* ---------- sections ---------- */
-section{padding:2.75rem 0}
-.band{background:var(--paper-2)}
-.sec-mark{display:block;width:100%;height:22px;margin-bottom:1.75rem;color:var(--brass)}
-
-.grid2{display:grid;gap:1.75rem 3rem}
-@media (min-width:50em){.grid2{grid-template-columns:1fr 1fr}}
-
-.gallery{padding-top:0}
-.photo-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-top:1rem}
-.photo-card{
-  position:relative;display:block;min-height:220px;border-radius:12px;overflow:hidden;
-  background:#d6c9b6;border:1px solid rgba(21,32,26,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);
-}
-.photo-card img{
-  display:block;width:100%;height:100%;object-fit:cover;
-}
-.photo-card span{
-  position:absolute;left:1rem;bottom:1rem;z-index:1;color:#F6F1E4;font-weight:700;letter-spacing:.02em;
-  text-shadow:0 1px 2px rgba(0,0,0,.28);
-  background:rgba(21,32,26,.22);padding:.35rem .55rem;border-radius:999px;
+.no li::before {
+  background: radial-gradient(circle at 4px 4px, #FFB4C0, var(--ornament) 60%, var(--ornament-dark));
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
-.donate-intro{grid-column:1 / -1;max-width:40em;margin:0 0 1rem}
-.donate-columns{display:grid;gap:1.75rem 3rem}
-@media (min-width:50em){.donate-columns{grid-template-columns:1fr 1fr}}
+.donate-intro { grid-column: 1 / -1; max-width: 40em; margin: 0 0 1.5rem; font-size: 1.15rem; }
+.donate-columns { display: grid; gap: 2rem 3.5rem; }
+@media (min-width:50em){ .donate-columns { grid-template-columns: 1fr 1fr; } }
 
-dl.qa{margin:0}
-dl.qa dt{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.14rem;margin:1.6rem 0 .3rem;color:var(--ink)}
-dl.qa dt:first-child{margin-top:0}
-dl.qa dd{margin:0;color:var(--muted);max-width:38em}
-dl.qa dd strong{color:var(--ink);font-weight:500}
-
-ul.plain{margin:.25rem 0 1rem;padding-left:1.1rem}
-ul.plain li{margin-bottom:.3rem}
-.yes li::marker{color:var(--fir)}
-.no li::marker{color:var(--ornament)}
-
-.callout{border-left:3px solid var(--ornament);padding:.15rem 0 .15rem 1.1rem;margin:1.5rem 0;color:var(--muted)}
-.callout strong{color:var(--ink);font-weight:500}
-
-.btn{
-  display:inline-block;background:var(--ornament);color:#F8F1E2;
-  padding:.7rem 1.4rem;border-radius:2px;text-decoration:none;font-weight:700;
-  border:none;font-size:1rem;transition:background-color .2s ease,color .2s ease,transform .2s ease;
+/* ---------- Photo Display Cards ---------- */
+.gallery { padding-top: 0; }
+.photo-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 1.5rem; }
+.photo-card {
+  position: relative; display: block; min-height: 240px; border-radius: 4px; overflow: hidden;
+  background: var(--paper-2); border: 2px solid var(--ink); box-shadow: var(--retro-shadow-ink);
+  transition: transform 0.15s ease;
 }
-.btn:hover{background:#7F2925;color:#FFF9F0}
-:root:not([data-theme="light"]) .btn{color:#F8F1E2}
-.btn:focus-visible{outline:2.5px solid var(--brass);outline-offset:3px}
+.photo-card:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0px 0px var(--ink); }
+.photo-card img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.photo-card span {
+  position: absolute; left: 0.75rem; bottom: 0.75rem; z-index: 1; 
+  color: var(--ink); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: .05em;
+  background: var(--paper); padding: .4rem .7rem; border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0px var(--brass);
+}
 
-address{font-style:normal}
-footer{background:var(--fir);color:#E4DAC2;padding:2.75rem 0;font-size:.97rem}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) footer{background:#0D1712}}
-:root[data-theme="dark"] footer{background:#0D1712}
-footer a{color:#F6F1E4}
-footer h2{font-size:1.4rem;color:#F6F1E4;margin-bottom:.4rem}
-.fine{color:#B9B09A;font-size:.88rem;margin-top:1.75rem}
-.skip{position:absolute;left:-9999px}
-.skip:focus{position:static;display:inline-block;margin:.5rem;padding:.5rem}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* ---------- Typography Accents & Calls to Action ---------- */
+.callout { 
+  border: 2px dashed var(--ornament); 
+  background: var(--paper-3);
+  padding: 1.25rem; margin: 2rem 0; 
+  color: var(--ink);
+  box-shadow: var(--retro-shadow-teal);
+}
+.callout strong { color: var(--ornament-dark); font-weight: 700; }
+
+.btn {
+  display: inline-block; background: var(--fir); color: var(--button-text);
+  padding: .85rem 1.75rem; border-radius: 4px; text-decoration: none; 
+  font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+  border: 2px solid var(--ink); box-shadow: var(--retro-shadow-ink);
+  transition: transform .1s ease, box-shadow .1s ease;
+}
+.btn:hover {
+  background: var(--ornament);
+  color: var(--paper);
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px 0px var(--ink);
+}
+.btn:active {
+  transform: translate(0px, 0px);
+  box-shadow: 2px 2px 0px 0px var(--ink);
+}
+/* Creates a reusable class to frame any header with atomic starbursts */
+/* Clean, left-aligned layout featuring both vintage starbursts */
+.starburst-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Keeps the text group anchored cleanly to the left */
+  gap: 1rem;                  /* Spacing between text and the stars */
+  text-align: left;
+}
+
+/* The Core Starburst Shape Template */
+.starburst-header::before,
+.starburst-header::after {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0; /* Prevents the stars from distorting on mobile screens */
+  
+  /* Creates the signature sharp mid-century 4-point star burst */
+  clip-path: polygon(50% 0%, 58% 42%, 100% 50%, 58% 58%, 50% 100%, 42% 58%, 0% 50%, 42% 42%);
+  
+  /* Adds that retro, offset printed comic book drop shadow depth */
+  filter: drop-shadow(2px 2px 0px var(--ornament)); 
+}
+
+/* 🟢 LEFT STAR: Classic mid-century atomic teal-green */
+.starburst-header::before {
+  background-color: var(--fir); 
+}
+
+/* 🔵 RIGHT STAR: Vibrant space-age sky blue */
+.starburst-header::after {
+  background-color: var(--brass); 
+}
+
+
 </style>
+
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
@@ -228,12 +391,12 @@ footer h2{font-size:1.4rem;color:#F6F1E4;margin-bottom:.4rem}
 
 <section class="band">
   <div class="wrap">
-    <svg class="sec-mark" viewBox="0 0 300 22" fill="none" aria-hidden="true" preserveAspectRatio="xMinYMid meet">
+    <svg class="sec-mark" viewBox="0 0 300 22" fill="none" aria-hidden="true" preserveAspectRatio="none">
       <path d="M0 4h300" stroke="currentColor" stroke-width="1"/>
       <path d="M40 4v6M150 4v9M260 4v6" stroke="currentColor" stroke-width="1"/>
       <circle cx="40" cy="14" r="4.2" fill="currentColor"/><circle cx="150" cy="17" r="5" fill="currentColor"/><circle cx="260" cy="14" r="4.2" fill="currentColor"/>
     </svg>
-    <h2>Planning your visit</h2>
+    <h2 class="starburst-header">Planning your visit</h2>
     <div class="grid2">
       <dl class="qa">
         <dt>Where is Recycled Christmas held?</dt>
@@ -330,27 +493,26 @@ footer h2{font-size:1.4rem;color:#F6F1E4;margin-bottom:.4rem}
     <h2>Where the money goes</h2>
     <div class="col">
       <p>Recycled Christmas is run entirely by volunteers. Every dollar taken in at the tables supports the <strong>United Women in Faith pledge to mission</strong> and the local organizations our church community supports.</p>
-      <p>Recent recipients include 
-        <ul>
-          <li>Bethany House of Hospitality</li>
-          <li>Children’s Advocacy Center of North and Northwest Cook County</li>
-          <li>C.I.T.Y. of Support</li>
-          <li>Faith Feeds Food Pantry</li>
-          <li>FamilyForward</li>
-          <li>FUMCAH Youth Mission</li>
-          <li>GirlForward</li>
-          <li>Good Neighbors Network</li>
-          <li>Hot Mess Express</li>
-          <li>Journeys The Road Home</li>
-          <li>Keeping Families Covered</li>
-          <li>Kids Above All</li>
-          <li>The Kid’s Pantry</li>
-          <li>Northwest Center Against Sexual Assault</li>
-          <li>Partners for Our Communities</li>
-          <li>Shelter Youth &amp; Family Services</li>
-          <li>WINGS — Women In Need Growing Stronger.</li>
-        </ul>
-      </p>
+      <p>Recent recipients include</p>
+      <ul>
+        <li>Bethany House of Hospitality</li>
+        <li>Children’s Advocacy Center of North and Northwest Cook County</li>
+        <li>C.I.T.Y. of Support</li>
+        <li>Faith Feeds Food Pantry</li>
+        <li>FamilyForward</li>
+        <li>FUMCAH Youth Mission</li>
+        <li>GirlForward</li>
+        <li>Good Neighbors Network</li>
+        <li>Hot Mess Express</li>
+        <li>Journeys The Road Home</li>
+        <li>Keeping Families Covered</li>
+        <li>Kids Above All</li>
+        <li>The Kid’s Pantry</li>
+        <li>Northwest Center Against Sexual Assault</li>
+        <li>Partners for Our Communities</li>
+        <li>Shelter Youth &amp; Family Services</li>
+        <li>WINGS — Women In Need Growing Stronger.</li>
+      </ul>      
       <p>We are honored to support these amazing organizations each year, and we could not do it without you.</p>
     </div>
   </div>
