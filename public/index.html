@@ -173,6 +173,7 @@ h1 {
 /* ---------- Mid-Mod Containers / Sections ---------- */
 section { padding: 3.5rem 0; }
 .band { background: var(--paper-2); border-top: 4px solid var(--ink); border-bottom: 4px solid var(--ink); }
+section.band:last-of-type {border-bottom: none;}
 
 svg.sec-mark {
   display: block;
@@ -316,6 +317,7 @@ ul.plain li::before {
   transform: translate(0px, 0px);
   box-shadow: 2px 2px 0px 0px var(--ink);
 }
+
 /* Creates a reusable class to frame any header with atomic starbursts */
 /* Clean, left-aligned layout featuring both vintage starbursts */
 .starburst-header {
@@ -356,7 +358,6 @@ footer {
   background-color: var(--fir-dark, #10201A);
   color: var(--paper, #FAF6EB); /* Forces normal body text to antique cream */
   padding: 4rem 0 3.5rem 0;
-  margin-top: 4rem;
   border-top: 6px double var(--ornament); /* Vintage red trim line */
 }
 
@@ -582,17 +583,6 @@ footer a:hover {
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <h2 class="starburst-header">Lending a hand</h2>
-    <div class="col">
-      <p>The sale takes weeks of sorting, pricing and hauling before a single shopper walks in, and a crew to run the rooms and pack up afterward. Shifts are available on weekdays, evenings and weekends, for adults and for helpers age 12 and up.</p>
-      <p>Tables to borrow and baked goods for the bake sale are always welcome too.</p>
-      <p><a class="btn" href="https://www.facebook.com/recycledchristmasandrummagesales/">Ask about volunteering</a></p>
-    </div>
-  </div>
-</section>
-
 </main>
 
 <footer>
@@ -677,7 +667,7 @@ footer a:hover {
         "postalCode": "60004",
         "addressCountry": "US"
       },
-      "geo": { "@type": "GeoCoordinates", "latitude": 42.1062, "longitude": -87.9600 },
+      "geo": { "@type": "GeoCoordinates", "latitude": 42.087611585210155, "longitude": -87.95900789446276 },      
       "publicAccess": true,
       "isAccessibleForFree": true
     },
